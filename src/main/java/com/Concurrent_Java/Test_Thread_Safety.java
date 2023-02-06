@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-public class Test_Thread_Safety {
+public class Test_Thread_Safety{
     @NotThreadSafe
     public static class UnsafeThread {
         private int value;
