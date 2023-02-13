@@ -35,7 +35,7 @@ public static void main(String[] args) {
         List<Integer> seqList1 = new ArrayList<>();
         List<Integer> seqList2 = new ArrayList<>();
 
-        int threads = 1000;
+        int threads = 100;
 
         pool.submit(() -> {
             for (int i = 0; i < threads; i++) {
