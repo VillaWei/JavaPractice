@@ -29,7 +29,7 @@ public class Test_Thread_Safety{
         }
     }
 
-public static void main(String[] args) {
+public static void main(String[] args) throws InterruptedException {
         ExecutorService pool = Executors.newFixedThreadPool(2);
         CountDownLatch countDownLatch = new CountDownLatch(2);
 
@@ -57,12 +57,8 @@ public static void main(String[] args) {
             countDownLatch.countDown();
         });
 
-        try {
-			countDownLatch.await();
-		} catch (InterruptedException e) {
-			 System.out.println(e.getStackTrace());
-		}
-
+		countDownLatch.await();
+		
         pool.shutdown();
 
         System.out.println(String.format("The unsafe sequense value:[%d]", unsafeSequence.value));

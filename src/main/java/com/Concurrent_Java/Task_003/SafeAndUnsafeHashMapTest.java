@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import com.Concurrent_Java.ThreadSafe;
 
 public class SafeAndUnsafeHashMapTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         ExecutorService pool = Executors.newFixedThreadPool(2);
         CountDownLatch countDownLatch = new CountDownLatch(2);
@@ -34,11 +34,7 @@ public class SafeAndUnsafeHashMapTest {
             countDownLatch.countDown();
         });
 
-        try {
-			countDownLatch.await();
-		} catch (InterruptedException e) {
-			 System.out.println(e.getStackTrace());
-		}
+		countDownLatch.await();
 
         pool.shutdown();
 
