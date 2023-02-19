@@ -1,7 +1,11 @@
-package com.Concurrent_Java;
+package com.Concurrent_Java.Task_001;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import com.Concurrent_Java.NotThreadSafe;
+import com.Concurrent_Java.ThreadSafe;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -35,7 +39,7 @@ public static void main(String[] args) {
         List<Integer> seqList1 = new ArrayList<>();
         List<Integer> seqList2 = new ArrayList<>();
 
-        int threads = 100;
+        int threads = 1000;
 
         pool.submit(() -> {
             for (int i = 0; i < threads; i++) {
@@ -63,6 +67,7 @@ public static void main(String[] args) {
 
         System.out.println(String.format("The unsafe sequense value:[%d]", unsafeSequence.value));
         System.out.println(String.format("The safe sequense value:[%d]", safeSequence.value));
+        
     }
 
 } 

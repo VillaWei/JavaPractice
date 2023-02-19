@@ -1,7 +1,10 @@
-package com.Concurrent_Java;
+package com.Concurrent_Java.Task_002;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import com.Concurrent_Java.NotThreadSafe;
+import com.Concurrent_Java.ThreadSafe;
 
 public class SafeAndUnsafeStatesTest {
     ExecutorService executorService;
