@@ -12,3 +12,11 @@ Map测试方式二选一：
 Deadline：3月6日中午12点最先完成任务且无明显缺陷的前3名同学将各获得一枚免死金牌 🏅️
 
 指出前三名明显缺陷的同学可以抢得🏅️使用相对严格模式证实自己的实现比 ConcurrentHashMap性能更好的，可以获得🏅️一枚
+
+Performance Test Result：
+1.  Collections.synchronizedMap - 
+The [java.util.Collections$SynchronizedMap]'s execution time:[764992024]
+
+2. ConcurrentHashMap - The [java.util.concurrent.ConcurrentHashMap]'s execution time:[649839738]
+
+3. ImprovedMap - The [com.Concurrent_Java.Task_004.ImprovedHashMap]'s execution time:[787077994]
