@@ -33,7 +33,7 @@ execution time:[764992024]
 
 3. ImprovedMap -  execution time:[787077994]
 
-Third Time around:
+3rd Time around:
 1.  Collections.synchronizedMap - 
 execution time:[727370179]
 
@@ -44,5 +44,5 @@ execution time:[727370179]
 
 
 Performance Analysis:
-1. ConcurrentHashMap 性能最好。
-2. ImprovedMap 和Collections.synchronizedMap 的对象map 在当前的测试用例是线程安全的，但有很多性能损耗。
+1. Collections.synchronizedMap 和 ImprovedMap 的对象map 在当前的测试用例是线程安全的，但有很多性能损耗。
+2. ConcurrentHashMap 是线程安全且并发性能三者里最好。
