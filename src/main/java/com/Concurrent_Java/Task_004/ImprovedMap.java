@@ -7,7 +7,7 @@ import java.util.Set;
 import com.Concurrent_Java.ThreadSafe;
 
 @ThreadSafe
-class ImprovedMap<K, V> implements Map<K, V> {
+public class ImprovedMap<K, V> implements Map<K, V> {
     private final Map<K, V> map;
  
     public ImprovedMap(Map<K, V> map) {
