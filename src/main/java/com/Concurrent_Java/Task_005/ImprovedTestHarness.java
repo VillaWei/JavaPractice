@@ -10,8 +10,9 @@ import com.Concurrent_Java.Task_004.TestHarness;
 public class ImprovedTestHarness extends TestHarness{
     private final static int INVALID_RETURN_VALUE = -1;
     public long timeTasks(int nThreads, final Runnable task) throws InterruptedException{
-        final CyclicBarrier startGate = new CyclicBarrier(nThreads);
-        final CyclicBarrier endGate = new CyclicBarrier(nThreads);
+        // Main thread is 1; nThreads(sub threads) is 10;
+        final CyclicBarrier startGate = new CyclicBarrier(nThreads + 1);
+        final CyclicBarrier endGate = new CyclicBarrier(nThreads + 1);
         final ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
  
         for(int i = 0; i < nThreads; i++) {
