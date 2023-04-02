@@ -9,7 +9,7 @@ public class ImprovedTestHarness {
         final CyclicBarrier startGate = new CyclicBarrier(taskCount + 1);
         final CyclicBarrier endGate = new CyclicBarrier(taskCount + 1);
 
-        ExecutorService executorService = new TimingThreadPool(taskCount,shouldStartAllCoreThread);
+        ExecutorService executorService = new TimingThreadPool(taskCount, taskCount, shouldStartAllCoreThread);
 
         try {
             for (int i = 0; i < taskCount; i++) {

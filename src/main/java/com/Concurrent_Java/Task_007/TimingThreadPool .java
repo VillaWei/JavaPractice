@@ -11,18 +11,9 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     private static final ThreadLocal<Long> startTime = new ThreadLocal<>();
     private boolean shouldStartAllCoreThread;
 
-    private static final ThreadFactory threadFactory = new ThreadFactory() {
-        private int counter = 0;
+    public TimingThreadPool(int corePoolSize, int maximumPoolSize, boolean shouldStartAllCoreThread) {
 
-        @Override
-        public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "Timing Thread Pool " + (counter++));
-        }
-    };
-
-    public TimingThreadPool(int corePoolSize, boolean shouldStartAllCoreThread) {
-
-        super(corePoolSize, corePoolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), threadFactory,
+        super(corePoolSize, maximumPoolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
         this.shouldStartAllCoreThread = shouldStartAllCoreThread;
         if (shouldStartAllCoreThread)
