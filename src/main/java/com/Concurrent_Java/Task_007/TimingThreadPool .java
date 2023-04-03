@@ -9,12 +9,12 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     private static final AtomicLong taskNum = new AtomicLong();
     private static final AtomicLong totalCost = new AtomicLong();
     private static final ThreadLocal<Long> startTime = new ThreadLocal<>();
-    private boolean shouldStartAllCoreThread;
+    private final boolean shouldStartAllCoreThread;
 
     public TimingThreadPool(int corePoolSize, int maximumPoolSize, boolean shouldStartAllCoreThread) {
 
         super(corePoolSize, maximumPoolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.AbortPolicy());
+                new AbortPolicy());
         this.shouldStartAllCoreThread = shouldStartAllCoreThread;
         if (shouldStartAllCoreThread)
             super.prestartAllCoreThreads();
